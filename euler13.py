@@ -3,8 +3,7 @@ import math
 import operator
 
 """
-What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in
-the 20×20 grid?
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 """
 number = """37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
