@@ -5,7 +5,7 @@ def callatz_sequence(n, l):
     if n%2 == 0:
         w = n/2
     else:
-        w = 3*n+1
+        w = (3*n+1)/2
     l.append(w)
     return w, l, n
 
@@ -17,4 +17,4 @@ def callatz(next_value):
 
 #print(callatz(13))
 
-print({i: len(callatz(i)) for i in range(25)})
+print({i: len(callatz(i)) for i in range(15)})

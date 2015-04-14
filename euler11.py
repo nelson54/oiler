@@ -31,13 +31,13 @@ grid = list(map(lambda row: list(map(int, row.split())), number.split("\n")))
 
 vals = []
 
-for x in range(16):
-    for y in range(16):
+for x in range(17):
+    for y in range(17):
         vals.extend([
             [grid[y][x+n] for n in range(0, 4)],
             [grid[y+n][x] for n in range(0, 4)],
             [grid[y+n][x+n] for n in range(0, 4)],
-            [grid[y+n][x-n] for n in range(0, 4) if x-n > 0]])
+            [grid[y+n][x-n] for n in range(0, 4)]])
 
 
 print(max(map(lambda group: reduce(operator.mul, group), [v for v in vals if len(v) > 0])))
