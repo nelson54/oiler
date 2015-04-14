@@ -107,7 +107,6 @@ number = """37107287533902102798797998220837590246510135740250
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690"""
 
-grid = list(map(lambda x: ast.literal_eval(x), number.split("\n")))
-total = sum(grid)
-total = math.floor(total/pow(10, len(str(total))-10))
+grid = sum(map(lambda x: ast.literal_eval(x), number.split("\n")))
+total = math.floor(grid/pow(10, len(str(grid))-10))
 print(total)
