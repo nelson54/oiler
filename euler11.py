@@ -31,7 +31,7 @@ grid = list(map(lambda row: list(map(int, row.split())), number.split("\n")))
 
 vals = []
 
-for x in range(17):
+for x in range(16):
     for y in range(16):
         vals.extend([
             [grid[y][x+n] for n in range(0, 4)],

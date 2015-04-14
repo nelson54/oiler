@@ -27,4 +27,4 @@ def numberOfDivisors(n):
 
     return reduce(mul, map(lambda x: x+1, exponents.values()))
 
-print(next(sum(range(n)) for n in count(1) if n > 2 and numberOfDivisors(sum(range(n))) > 500))
+print(next(n*(n+1)/2 for n in count(1) if n > 2 and numberOfDivisors(n*(n+1)/2) > 500))
