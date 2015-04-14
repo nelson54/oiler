@@ -24,25 +24,20 @@ number = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
-01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
+01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
+"""
 
-grid = number.split("\n")
-grid = list(map(lambda row: list(map(int, row.split())), grid))
-
-get_right_nums = lambda x, y: [grid[y][x+n] for n in range(0, 4)]
-get_down_nums = lambda x, y: [grid[y+n][x] for n in range(0, 4)]
-get_diag_nums = lambda x, y: [grid[y+n][x+n] for n in range(0, 4)]
-get_diag2_nums = lambda x, y: [grid[y+n][x-n] for n in range(0, 4) if(x-n > 0 and y-0 > 0)]
+grid = list(map(lambda row: list(map(int, row.split())), number.split("\n")))
 
 vals = []
 
-for c in range(17):
-    for r in range(16):
-        vals.append(get_diag_nums(c, r))
-        vals.append(get_right_nums(c, r))
-        vals.append(get_down_nums(c, r))
-        vals.append(get_diag2_nums(c, r))
+for x in range(17):
+    for y in range(16):
+        vals.extend([
+            [grid[y][x+n] for n in range(0, 4)],
+            [grid[y+n][x] for n in range(0, 4)],
+            [grid[y+n][x+n] for n in range(0, 4)],
+            [grid[y+n][x-n] for n in range(0, 4) if(x-n > 0 and y-0 > 0)]])
 
-vals = [v for v in vals if len(v) > 0]
 
-print(max(map(lambda group: reduce(operator.mul, group), vals)))
+print(max(map(lambda group: reduce(operator.mul, group), [v for v in vals if len(v) > 0])))
