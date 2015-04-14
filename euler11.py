@@ -37,7 +37,7 @@ for x in range(17):
             [grid[y][x+n] for n in range(0, 4)],
             [grid[y+n][x] for n in range(0, 4)],
             [grid[y+n][x+n] for n in range(0, 4)],
-            [grid[y+n][x-n] for n in range(0, 4) if(x-n > 0 and y-0 > 0)]])
+            [grid[y+n][x-n] for n in range(0, 4) if x-n > 0]])
 
 
 print(max(map(lambda group: reduce(operator.mul, group), [v for v in vals if len(v) > 0])))
