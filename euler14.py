@@ -16,5 +16,14 @@ def callatz(next_value):
     return arr
 
 #print(callatz(13))
+val = 0
+highest = 0
+for i in range(1, 1000000):
+    #print("Number:", i)
+    size = len(callatz(i))
+    if highest < size:
+        val, highest = i, size
+        #print("New Highest:", i)
+print("Top:", val)
 
-print({i: len(callatz(i)) for i in range(15)})
+#print({i: len(callatz(i)) for i in range(15)})
